@@ -1,2 +1,2 @@
-# NECAT
-Nanopore data  assembler
+# NECAT IS COMING SOON!
+
