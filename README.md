@@ -22,19 +22,26 @@ There are two ways to install `NECAT`.
 ```shell
 $ wget https://github.com/xiaochuanle/NECAT/releases/download/SourceCodes20200119/necat_20200119_Linux-amd64.tar.gz
 $ tar xzvf necat_20200119_Linux-amd64.tar.gz
-$ export PATH=$PATH:$(pwd)/NECAT/Linux-amd64/bin
+$ cd NECAT/Linux-amd64/bin
+$ export PATH=$PATH:$(pwd)
 ```
 
 
 ### Build from source codes
 
 ```shell
-$ wget https://github.com/xiaochuanle/NECAT/releases/download/v0.01/necat_20190307_linux_amd64.tar.gz
-$ tar xzvf necat_20190307_linux_amd64.tar.gz
-$ export PATH=$PATH:$(pwd)/NECAT/Linux-amd64/bin
+$ git clone https://github.com/xiaochuanle/NECAT.git
+$ cd NECAT/src/
+$ make
+$ cd ../Linux-amd64/bin
+$ export PATH=$PATH:$(pwd)
 ```
 
-After installation, all the executable files can be found in `NECAT/Linux-amd64/bin`.  The third line above is used for adding `NECAT/Linux-amd64/bin` to the system `PATH`.
+After installation, all the executable files can be found in `NECAT/Linux-amd64/bin`.  The command line
+```shell
+export PATH=$PATH:$(pwd)
+```
+above is used for adding `NECAT/Linux-amd64/bin` to the system `PATH`.
 
 
 # Quick Start
