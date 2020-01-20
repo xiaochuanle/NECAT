@@ -1,0 +1,13 @@
+PROJECT=tomato
+THREADS=96
+ONT_READ_LIST=/share/home/chuanlex/xiaochuanle/data/testdata/tomato/tomato_read_list.txt
+GENOME_SIZE=120000000
+MIN_READ_LENGTH=3000
+OVLP_FAST_OPTIONS="-n 200 -z 20 -b 2000 -e 0.5 -j 0 -u 1 -a 1500"
+OVLP_SENSITIVE_OPTIONS="-n 200 -z 10 -e 0.5 -j 0 -u 1 -a 1500"
+CNS_FAST_OPTIONS="-a 2000 -x 4 -y 12 -l 3000 -e 0.3 -p 0.8 -u 1"
+CNS_SENSITIVE_OPTIONS="-a 2000 -x 4 -y 12 -l 3000 -e 0.3 -p 0.8 -u 1"
+TRIM_OVLP_OPTIONS="-n 100 -z 10 -b 2000 -e 0.5 -j 1 -u 1 -a 400"
+ASM_OVLP_OPTIONS="-n 100 -z 10 -b 2000 -e 0.5 -j 1 -u 0 -a 400"
+NUM_ITER=3
+CLEANUP=1

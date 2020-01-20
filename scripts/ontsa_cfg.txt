@@ -1,0 +1,10 @@
+PROJECT=arab
+THREADS=20
+ONT_READ_LIST=/share/home/chuanlex/chenying/test/ecoli/ara_read_list.txt
+GENOME_SIZE=120000000
+MIN_READ_LENGTH=500
+OVLP_FAST_OPTIONS="-n 500 -z 10 -b 2000 -e 0.5 -j 0 -u 1"
+OVLP_SENSITIVE_OPTIONS="-n 500 -z 10 -e 0.5 -j 0 -u 1"
+CNS_FAST_OPTIONS="-e 0.5"
+CNS_SENSITIVE_OPTIONS="-e 0.5"
+NUM_ITER=3

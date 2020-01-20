@@ -1,0 +1,41 @@
+getOsMachineType() {
+    OSTYPE=`uname`
+    MACHINETYPE=`uname -m`
+
+    if [ ${MACHINETYPE} == "x86_64" ]; then
+        MACHINETYPE="amd64"
+    fi
+
+    if [ ${MACHINETYPE} == "Power Macintosh" ]; then	
+        MACHINETYPE="ppc"
+    fi
+
+    if [ ${OSTYPE} == "SunOS" ]; then
+        MACHINETYPE=`uname -p`
+        if [ ${MACHINETYPE} == "sparc" ]; then
+            if [ `/usr/bin/isainfo -b` == "64" ]; then
+                MACHINETYPE=sparc64
+            else
+                MACHINETYPE=sparc32
+            fi
+        fi
+    fi
+    echo ${OSTYPE}-${MACHINETYPE}
+}
+
+date_str=`date +%Y%m%d`
+machine_type=`getOsMachineType`
+bin_path=${machine_type}/bin
+mkdir -p $bin_path
+
+commit_ts=`git log -1 --format="%ct"`
+commit_time=`date -d@$commit_ts +"%Y-%m-%d %H:%M:%S"`
+current_time=`date +"%Y-%m-%d %H:%M:%S"`
+git_version=`git log -1 --format="%H"`
+
+echo "Version: $git_version" > $bin_path/VERSION
+echo "Commit Time: $commit_time" >> $bin_path/VERSION
+echo "Build Time: $current_time" >> $bin_path/VERSION
+
+cd src && make && cd ..
+tar --transform 's,^,NECAT/,S' -czf ${machine_type}/necat_${date_str}_${machine_type}.tar.gz $bin_path 
