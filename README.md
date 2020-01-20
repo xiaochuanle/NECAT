@@ -46,6 +46,8 @@ above is used for adding `NECAT/Linux-amd64/bin` to the system `PATH`.
 
 # Quick Start
 
+***Before running `NECAT` please do not forget to add `NECAT/Linux-amd64/bin` to the system `PATH`.***
+
 ### Step 1: Create a config file
 
 Create a config file template using the following command:
