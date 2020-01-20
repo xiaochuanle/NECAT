@@ -21,7 +21,7 @@ There are two ways to install `NECAT`.
 
 ```shell
 $ wget https://github.com/xiaochuanle/NECAT/releases/download/SourceCodes20200119/necat_20200119_Linux-amd64.tar.gz
-$ tar xzvf necat_20190307_linux_amd64.tar.gz
+$ tar xzvf necat_20200119_Linux-amd64.tar.gz
 $ export PATH=$PATH:$(pwd)/NECAT/Linux-amd64/bin
 ```
 
