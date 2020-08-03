@@ -200,7 +200,8 @@ void OverlapStore::LoadFileMt(const std::string &fname, F lineToOl, C check, siz
     std::mutex mutex_comb;
     GzFileReader in(fname);
     //std::ifstream in(fname);
-    const size_t block_size = 500;
+    const size_t block_size = 1000;
+    if (thread_size > 10 ) thread_size = 10;
 
     auto generate_func = [&mutex_gen, &in](std::vector<std::string> &lines) {
         std::lock_guard<std::mutex> lock(mutex_gen);

@@ -70,9 +70,10 @@ ArgumentParser Assembly::GetArgumentParser() {
     ap.AddNamedOption(options_.run_mode, "run_mode", "for testing");
     ap.AddNamedOption(options_.lfc, "lfc", "deprecated, for testing");
     ap.AddNamedOption(options_.remove_chimer, "remove_chimer", "deprecated, remove chimer node");
+    ap.AddNamedOption(options_.max_spur_length, "max_spur_length", "branches less the threshod are treated as spurs");
 
     ap.AddPositionOption(options_.overlap_file, "filterd_overlaps", "input filename");
-        
+    
     return ap;
 }
 
@@ -127,7 +128,7 @@ void Assembly::CreatePathGraph() {
         path_graph_.Dump(options_.output_directory + "/path_graph_0.txt");
 
     LOG(INFO)("IdentifyPathSpur");
-    path_graph_.IdentifyPathSpur();
+    path_graph_.IdentifyPathSpur(10, options_.max_spur_length);
 
     if (options_.dump > 0)
         path_graph_.Dump(options_.output_directory + "/path_graph_1.txt");
@@ -146,7 +147,7 @@ void Assembly::CreatePathGraph() {
     LOG(INFO)("MarkRepeatBridge");
     path_graph_.MarkRepeatBridge();
     LOG(INFO)("IdentifyPathSpur");
-    path_graph_.IdentifyPathSpur();
+    path_graph_.IdentifyPathSpur(10, options_.max_spur_length);
 
     LOG(INFO)("IdentifyPaths");
     path_graph_.IdentifyPaths(options_.select_branch);

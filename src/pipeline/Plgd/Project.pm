@@ -160,7 +160,7 @@ sub runJob ($$$) {
             parallelRunJobs($env, $cfg, @{$job->pjobs});
             echoFile("$script.done", "0");
         } else {
-            pldgWarn("It is an empty job");
+            plgdWarn("It is an empty job");
             # die "never come here"
         }
 

@@ -109,8 +109,8 @@ find_kmer_match(vec_kmif* query_kmif_list,
         while (ti < tn && tki[ti].hash < qki[qi].hash) ti += tki[ti].occ;
         if (ti >= tn) break;
         if (qki[qi].hash == tki[ti].hash) {
-            int n_occ = qki[qi].occ * tki[ti].occ;
-            if (n_occ <= max_occ) {
+            int r = (qki[qi].occ <= max_occ) && (tki[ti].occ <= max_occ) && (qki[qi].occ * tki[ti].occ <= max_occ);
+            if (r) {
                 for (int i = 0; i < qki[qi].occ; ++i) {
                     m.match_size = kmer_size;
                     m.query_offset = qki[qi + i].offset;

@@ -32,6 +32,7 @@ struct Options {
     int dump{ 0 };
     std::string overlap_file_type{ "" };
     int thread_size {1};
+    int max_spur_length { 50000 };
 };
 
 class Assembly {
