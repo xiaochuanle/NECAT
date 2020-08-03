@@ -20,8 +20,8 @@ There are two ways to install `NECAT`.
 ### Install from executable binaries
 
 ```shell
-$ wget https://github.com/xiaochuanle/NECAT/releases/download/SourceCodes20200119/necat_20200119_Linux-amd64.tar.gz
-$ tar xzvf necat_20200119_Linux-amd64.tar.gz
+$ wget https://github.com/xiaochuanle/NECAT/releases/download/v0.0.1_update20200803/necat_20200803_Linux-amd64.tar.gz
+$ tar xzvf necat_20200803_Linux-amd64.tar.gz
 $ cd NECAT/Linux-amd64/bin
 $ export PATH=$PATH:$(pwd)
 ```
