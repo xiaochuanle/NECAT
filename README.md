@@ -2,6 +2,8 @@
 
 NECAT is an error correction and *de-novo* assembly tool for Nanopore long noisy reads.
 
+If you are interested in calling Structural Variants from Nanopore reads, you are welcome to have a try our [necatsv](https://github.com/xiaochuanle/necatsv).
+
 # Installation
 
 We have sucessfully tested `NECAT` on
