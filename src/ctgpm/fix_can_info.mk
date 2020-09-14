@@ -11,7 +11,7 @@ SOURCES  := fix_can_info.c split_ctgs.c
 SRC_INCDIRS  := . 
 
 TGT_LDFLAGS := -L${TARGET_DIR}
-TGT_LDLIBS  := -lontcns
+TGT_LDLIBS  := -lontcns -lz
 TGT_PREREQS := libontcns.a
 
 SUBMAKEFILES :=

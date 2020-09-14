@@ -22,7 +22,7 @@ SOURCES  := pm4_aux.c \
 SRC_INCDIRS  := . 
 
 TGT_LDFLAGS := -L${TARGET_DIR}
-TGT_LDLIBS  := -lontcns
+TGT_LDLIBS  := -lontcns -lpthread
 TGT_PREREQS := libontcns.a
 
 SUBMAKEFILES :=

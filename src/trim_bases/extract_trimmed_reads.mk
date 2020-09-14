@@ -10,8 +10,8 @@ SOURCES  := extract_trimmed_reads.c largest_cover_range.c range_list.c detect_ch
 
 SRC_INCDIRS  := . 
 
+TGT_LDLIBS  := -lontcns -lz -lpthread
 TGT_LDFLAGS := -L${TARGET_DIR}
-TGT_LDLIBS  := -lontcns
 TGT_PREREQS := libontcns.a
 
 SUBMAKEFILES :=

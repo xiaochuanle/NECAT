@@ -11,7 +11,7 @@ SOURCES  := asmpm.c find_mem.c km_chain.c blockwise_edlib.c daligner.c align.c h
 SRC_INCDIRS  := . 
 
 TGT_LDFLAGS := -L${TARGET_DIR}
-TGT_LDLIBS  := -lontcns
+TGT_LDLIBS  := -lontcns -lz -lpthread
 TGT_PREREQS := libontcns.a
 
 SUBMAKEFILES :=
