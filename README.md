@@ -146,6 +146,10 @@ GRID_NODE=4
 ```
 In the above example, `4` computation nodes will be used and each computation node will run with `THREADS` CPU threads.
 
+# Citation
+
+Chen Y, Nie F, Xie S Q, et al. Efficient assembly of nanopore reads via highly accurate and intact error correction[J]. Nature Communications, 2021, 12(1): 1-10.
+
 # Contact
 
 * Chuan-Le Xiao, xiaochuanle@126.com
