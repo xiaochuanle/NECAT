@@ -46,9 +46,9 @@ void ReadStore::SetNameToId(const std::string &name, int id) {
 
 void ReadStore::Load(const std::string &fname, const std::string &type, bool all, const std::unordered_set<Seq::Id>& seqids) {
     std::string t = type != "" ? type : DetectFileType(fname);
-    if (t == "fasta" || t == "fasta.gz") {
+    if (t == "fasta" || t == "fasta.gz" || t == "fa" || t == "fa.gz" ) {
         LoadFasta(fname, all, seqids);
-    } else if (t == "fastq" || t == "fastq.gz") {
+    } else if (t == "fastq" || t == "fastq.gz" || t == "fq" || t == "fq.gz" ) {
         LoadFastq(fname, all, seqids);
     } else if (t == "fofn") {
         LoadFofn(fname, all, seqids);
