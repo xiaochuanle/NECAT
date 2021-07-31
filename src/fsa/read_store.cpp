@@ -145,7 +145,11 @@ std::string ReadStore::DetectFileType(const std::string &fname) {
         return "fasta.gz";
     } else if (fname.size() >= 6 && fname.substr(fname.size()-6) == ".fastq") {
         return "fastq";
+    } else if (fname.size() >= 6 && fname.substr(fname.size()-3) == ".fq") {
+        return "fastq";
     } else if (fname.size() >= 9 && fname.substr(fname.size()-9) == ".fastq.gz") {
+        return "fastq.gz";
+    } else if (fname.size() >= 9 && fname.substr(fname.size()-6) == ".fq.gz") {
         return "fastq.gz";
     } else if (fname.size() >= 5 && fname.substr(fname.size()-5) == ".fofn") {
         return "fofn";
