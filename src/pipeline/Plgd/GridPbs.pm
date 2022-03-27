@@ -61,7 +61,7 @@ sub submitScriptPbs($$$$) {
     $cmd = $cmd . " -o $script.log";                            # output
     $cmd = $cmd . " $options";                                  # other options
     $cmd = $cmd . " $script";                                   # script
-    plgdInfo("Sumbit command: $cmd");    
+    plgdInfo("Submit command: $cmd");    
     my $result = `$cmd`;
 
     if (not $result eq "") {
