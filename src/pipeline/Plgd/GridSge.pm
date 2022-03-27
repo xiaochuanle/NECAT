@@ -35,7 +35,7 @@ sub submitScriptSge($$$$) {
     $cmd = $cmd . " -o $script.log -j yes";                 # output
     $cmd = $cmd . " $options";                              # other options
     $cmd = $cmd . " $script";                               # script
-    plgdInfo("Sumbit command: $cmd");    
+    plgdInfo("Submit command: $cmd");    
     my $result = `$cmd`;
     my @items = split(" ", $result);
     if (scalar @items >= 3) {

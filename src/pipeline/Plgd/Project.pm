@@ -153,7 +153,7 @@ sub runJob ($$$) {
             echoFile("$script.done", "0");
         } elsif (scalar @{$job->jobs} > 0) {
             foreach my $j (@{$job->jobs}) {
-                runJob($env, $cfg, $j);
+                &runJob($env, $cfg, $j);
             }
             echoFile("$script.done", "0");
         } elsif (scalar @{$job->pjobs} > 0) {
