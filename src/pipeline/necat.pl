@@ -719,7 +719,6 @@ sub runTrimBasesFast($$) {
     my $u2uVolDir = "$workDir/uu_ovlps";
     my $c2uVolDir = "$workDir/cu_ovlps";
 
-    my $trimReads = "$prjDir/trimReads.fasta";
     my $pmm4 = "$prjDir/3-assembly/pm.m4";
     my $trimPmm4 = "$workDir/pm.m4";
     my $tmpTrimReads = "$workDir/tmp_trimReads.fasta";
@@ -1507,8 +1506,8 @@ sub cmdCorrect($) {
     %env = loadNecatEnv(\%cfg);
     initializeNecatProject(\%cfg);
 
-    my $prjDir = %env{"WorkPath"} . "/" .%cfg{"PROJECT"};
-    my $isGz = %cfg{"COMPRESS"};
+    my $prjDir = $env{"WorkPath"} . "/" .$cfg{"PROJECT"};
+    my $isGz = $cfg{"COMPRESS"};
     my $finalCnsReads = $isGz ? "1-consensus/cns_final.fasta.gz" : "1-consensus/cns_final.fasta";
 
     runConsensus(\%env, \%cfg);
@@ -1524,7 +1523,7 @@ sub cmdAssemble($) {
     %env = loadNecatEnv(\%cfg);
     initializeNecatProject(\%cfg);
 
-    my $prjDir = %env{"WorkPath"} . "/" .%cfg{"PROJECT"};
+    my $prjDir = $env{"WorkPath"} . "/" .$cfg{"PROJECT"};
 
     runConsensus(\%env, \%cfg);
 
@@ -1532,7 +1531,7 @@ sub cmdAssemble($) {
 
     runAssemble(\%env, \%cfg);
 
-    if (%cfg{"POLISH_CONTIGS"} == 1 or %cfg{"POLISH_CONTIGS"} eq "true") {
+    if ($cfg{"POLISH_CONTIGS"} == 1 or $cfg{"POLISH_CONTIGS"} eq "true") {
         runPolishContigs(\%env, \%cfg, "plctg0", "$prjDir/4-fsa/contigs.fasta", 
                      "$prjDir/4-fsa/contig_tiles", "$prjDir/trimReads.fasta.gz", "4-fsa");
         
@@ -1550,7 +1549,7 @@ sub cmdBridge($) {
     %env = loadNecatEnv(\%cfg);
     initializeNecatProject(\%cfg);
 
-    my $prjDir = %env{"WorkPath"} . "/" .%cfg{"PROJECT"};
+    my $prjDir = $env{"WorkPath"} . "/" .$cfg{"PROJECT"};
 
     runConsensus(\%env, \%cfg);
 
@@ -1561,7 +1560,7 @@ sub cmdBridge($) {
     runAlignContigs(\%env, \%cfg);
     runBridgeContigs(\%env, \%cfg);
     
-    if (%cfg{"POLISH_CONTIGS"} == 1 or %cfg{"POLISH_CONTIGS"} eq "true") {
+    if ($cfg{"POLISH_CONTIGS"} == 1 or $cfg{"POLISH_CONTIGS"} eq "true") {
         runPolishContigs(\%env, \%cfg, "plctg1", "$prjDir/6-bridge_contigs/bridged_contigs.fasta", 
                      "$prjDir/4-fsa/contig_tiles", "$prjDir/trimReads.fasta.gz", "6-bridge_contigs");
     
@@ -1597,8 +1596,7 @@ sub usage() {
 
 sub main() {
     if (scalar @ARGV >= 2) {
-        my $cmd = @ARGV[0];
-        my $cfgfname = @ARGV[1];
+        my ($cmd,$cfgfname) = @ARGV;
 
         if ($cmd eq "correct") {
             cmdCorrect($cfgfname);

@@ -86,7 +86,7 @@ sub checkScriptPbs($$) {
         my @items = split(" ", $_);
         if (scalar @items >= 6 and $jobid =~ /$items[0]/) {
             $state = $items[4];
-            break;
+            last;
         }
         
     }

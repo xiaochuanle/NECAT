@@ -190,7 +190,7 @@ sub plgdLogLevel($) {
 }
 
 sub plgdDebug($) {
-    plgdLog("Debug", @_[0]) if $logLevel <= 0;
+    plgdLog("Debug", $_[0]) if $logLevel <= 0;
 }
 
 sub plgdInfo($) {
@@ -199,11 +199,11 @@ sub plgdInfo($) {
 }
 
 sub plgdWarn($) {
-    plgdLog("Warning", @_[0]) if $logLevel <= 2;
+    plgdLog("Warning", $_[0]) if $logLevel <= 2;
 }
 
 sub plgdError($) {
-    plgdLog("Error", @_[0]);    # 
+    plgdLog("Error", $_[0]);    # 
     exit(1);
 }
  
